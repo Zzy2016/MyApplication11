@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/item1"
-        android:title="功能1"></item>
-    <item
-        android:id="@+id/item2"
-        android:title="功能2"></item>
-    <item
-        android:id="@+id/item3"
-        android:title="功能3"></item>
-    <item
-        android:id="@+id/item4"
-        android:title="功能3"></item>
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/navHome"
+            android:title="主页"
+            android:icon="@mipmap/ic_collect_yes"
+            />
+
+        <item android:id="@+id/navCollect"
+            android:title="收藏"
+            android:icon="@mipmap/ic_collect_yes"
+            />
+
+        <item android:id="@+id/navToDoFragment"
+            android:title="待办"
+            android:icon="@mipmap/ic_collect_yes"
+            />
+
+    </group>
+
+    <item android:title="其他">
+        <menu>
+            <item
+                android:id="@+id/navSquare"
+                android:icon="@mipmap/ic_collect_yes"
+                android:title="广场"
+                />
+            <item
+                android:id="@+id/navQua"
+                android:icon="@mipmap/ic_collect_yes"
+                android:title="问答"
+                />
+
+        </menu>
+
+    </item>
 </menu>

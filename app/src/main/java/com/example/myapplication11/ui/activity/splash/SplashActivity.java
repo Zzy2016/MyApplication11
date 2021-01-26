@@ -17,12 +17,12 @@ import com.example.myapplication11.ui.activity.detail.DetailActivity;
 import com.example.myapplication11.ui.activity.main.MainActivity;
 import com.orhanobut.hawk.Hawk;
 
-public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashViewModel> {
+public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.firstOpen=true;
+        App.firstOpen = true;
 //        setContentView(R.layout.activity_splash);
     }
 
@@ -38,7 +38,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
 
     @Override
     protected void initViewModel() {
-        mViewModel=new ViewModelProvider(this).get(SplashViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(SplashViewModel.class);
     }
 
     @Override
@@ -51,11 +51,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
         mViewModel.getImage().observe(this, new Observer<ImageBean>() {
             @Override
             public void onChanged(ImageBean imageBean) {
-                if(imageBean!=null){
-                    String url=imageBean.getImages().get(0).getBaseUrl()+imageBean.getImages().get(0).getUrl();
+                if (imageBean != null) {
+                    String url = imageBean.getImages().get(0).getBaseUrl() + imageBean.getImages().get(0).getUrl();
                     Glide.with(SplashActivity.this).load(url).into(mDataBinding.ivSplash);
-                    Hawk.put(Constants.HawkCode.SPLASH_IMAGE_URL,url);
-                }else{
+                    Hawk.put(Constants.HawkCode.SPLASH_IMAGE_URL, url);
+                } else {
                     Glide.with(SplashActivity.this)
                             .load(R.mipmap.splash_bg)
                             .into(mDataBinding.ivSplash);
@@ -66,10 +66,10 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
         mViewModel.getActivitySkip().observe(this, new Observer<ActivitySkip>() {
             @Override
             public void onChanged(ActivitySkip activitySkip) {
-                if("DetailsActivity".equals(activitySkip.getmActivity())){
+                if ("DetailsActivity".equals(activitySkip.getmActivity())) {
 
-                }else if("MainActivity".equals(activitySkip.getmActivity())){
-                    MainActivity.start(SplashActivity.this,false);
+                } else if ("MainActivity".equals(activitySkip.getmActivity())) {
+                    MainActivity.start(SplashActivity.this, false);
                     finish();
                 }
             }
