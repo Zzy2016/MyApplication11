@@ -66,7 +66,7 @@ public class SplashViewModel extends BaseViewModel {
     }
 
     public void loadImageView(){
-        if(NetworkUtils.isConnected()){
+        if(!NetworkUtils.isConnected()){
             mImage.postValue(null);
         }else{
             HttpRequest.getInstance(ServerAddress.API_BING)
@@ -76,12 +76,14 @@ public class SplashViewModel extends BaseViewModel {
                         @Override
                         public void success(ImageBean imageBean) {
                             mImage.postValue(imageBean);
+                            Log.e("----------->",imageBean.toString());
                             url=imageBean.getImages().get(0).getCopyrightlink();
                         }
 
                         @Override
                         public void onError(Throwable e) {
                             super.onError(e);
+                            Log.e("----------->1",e.toString());
                             mImage.postValue(null);
                         }
                     });

@@ -5,7 +5,7 @@ import android.app.Activity;
 import java.lang.ref.WeakReference;
 
 public class MyActivityManager {
-    private static MyActivityManager sInstance=new MyActivityManager();
+    private static MyActivityManager sInstance = new MyActivityManager();
     private WeakReference<Activity> sCurrentActivityWeakRef;
 
 
@@ -17,14 +17,22 @@ public class MyActivityManager {
     }
 
     public Activity getsCurrentActivityWeakRef() {
-        Activity currentActivity=null;
-        if(sCurrentActivityWeakRef!=null){
-            currentActivity=sCurrentActivityWeakRef.get();
+        Activity currentActivity = null;
+        if (sCurrentActivityWeakRef != null) {
+            currentActivity = sCurrentActivityWeakRef.get();
         }
         return currentActivity;
     }
 
     public void setsCurrentActivityWeakRef(Activity activity) {
-        this.sCurrentActivityWeakRef =new WeakReference<>(activity);
+        this.sCurrentActivityWeakRef = new WeakReference<>(activity);
+    }
+
+    public Activity getCurrentActivity() {
+        Activity currentActivity = null;
+        if (sCurrentActivityWeakRef != null) {
+            currentActivity = sCurrentActivityWeakRef.get();
+        }
+        return currentActivity;
     }
 }

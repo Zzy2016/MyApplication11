@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplication11.ui.home.HomeFragment"
+        android:label="主页"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_square"
+        android:name="com.example.myapplication11.ui.nav.square.SquareFragment"
+        android:label="广场"
+        tools:layout="@layout/fragment_square2" />
+
+    <fragment
+        android:id="@+id/nav_qa"
+        android:name="com.example.myapplication11.ui.nav.qa.QaFragment"
+        android:label="问答"
+        tools:layout="@layout/fragment_qa2" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.myapplication11.ui.nav.qa.QaFragment"
+        android:label="分享"
+        tools:layout="@layout/fragment_qa2" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.myapplication11.ui.nav.about.AboutFragment"
+        android:label="关于"
+        tools:layout="@layout/fragment_about2" />
+
+
+    <fragment
+        android:id="@+id/nav_update"
+        android:name="com.example.myapplication11.ui.nav.update.UpdateFragment"
+        android:label="更新"
+        tools:layout="@layout/fragment_update" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.myapplication11.ui.bottom.wechat.WeChatFragment"
+        android:label="公众号"
+        tools:layout="@layout/fragment_we_chat" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.myapplication11.ui.bottom.system.SystemFragment"
+        android:label="体系"
+        tools:layout="@layout/fragment_system" />
+
+
+    <!--    体系详情-->
+    <fragment
+        android:id="@+id/systemChildrenFragment"
+        android:name="com.example.myapplication11.ui.bottom.system.systemchildren.SystemChildrenFragmentFragment"
+        android:label="SystemChildrenFragment" />
+
+    <!--    导航-->
+    <fragment
+        android:id="@+id/navigation_navigation"
+        android:name="com.example.myapplication11.ui.bottom.navi.NavigationFragment"
+        android:label="导航" />
+
+
+    <!--    我的-->
+    <fragment
+        android:id="@+id/mineFragment"
+        android:name="com.example.myapplication11.ui.nav.mine.MineFragment"
+        android:label="我的" />
+
+    <!--    待办清单-->
+    <fragment
+        android:id="@+id/toDoFragment"
+        android:name="com.example.myapplication11.ui.nav.todo.ToDoFragment"
+        android:label="ToDoFragment" />
+
+    <!--    待办清单详情-->
+    <fragment
+        android:id="@+id/toDoContentFragment"
+        android:name="com.example.myapplication11.ui.nav.todo.todocontent.TodoContentFragment"
+        android:label="ToDoContentFragment" />
+
+    <!--    新增待办事项-->
+    <fragment
+        android:id="@+id/addToDoFragment"
+        android:name="com.example.myapplication11.ui.nav.todo.addtodo.AddToDoFragment"
+        android:label="新增待办" />
+
+    <!--    积分详情列表-->
+    <fragment
+        android:id="@+id/coinListFragment"
+        android:name="com.example.myapplication11.ui.nav.mine.coin.CoinListFragment"
+        android:label="积分详情" />
+
+    <!--    积分排行榜-->
+    <fragment
+        android:id="@+id/coinRankListFragment"
+        android:name="com.example.myapplication11.ui.nav.mine.coinrank.CoinRankListFragment"
+        android:label="积分排行榜" />
+
+    <fragment
+        android:id="@+id/navigation_project"
+        android:name="com.example.myapplication11.ui.bottom.project.ProjectFragment"
+        android:label="项目" />
+
+    <navigation
+        android:id="@+id/navigation"
+        app:startDestination="@id/nav_collect">
+        <fragment
+            android:id="@+id/nav_collect"
+            android:name="com.example.myapplication11.ui.nav.collect.CollectFragment"
+            android:label="收藏"
+            tools:layout="@layout/fragment_collect" />
+    </navigation>
+
+
+</navigation>

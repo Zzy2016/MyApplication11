@@ -1,5 +1,6 @@
+include ':nav1'
+include ':nav'
+include ':share'
 include ':mylibrary'
-include ':myapplication2'
-include ':myapplication'
 include ':app'
 rootProject.name = "My Application11"

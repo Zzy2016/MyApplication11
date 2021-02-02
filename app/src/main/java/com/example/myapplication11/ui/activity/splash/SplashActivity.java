@@ -13,7 +13,6 @@ import com.example.myapplication11.bean.responsebean.ImageBean;
 import com.example.myapplication11.config.App;
 import com.example.myapplication11.config.Constants;
 import com.example.myapplication11.databinding.ActivitySplashBinding;
-import com.example.myapplication11.ui.activity.detail.DetailActivity;
 import com.example.myapplication11.ui.activity.main.MainActivity;
 import com.orhanobut.hawk.Hawk;
 

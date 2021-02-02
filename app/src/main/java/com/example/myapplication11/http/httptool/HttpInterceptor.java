@@ -52,8 +52,9 @@ public class HttpInterceptor implements Interceptor {
         Request request = chain.request();
         request = getHeaderRequest(request);
         logRequest(request);
-        Response response = chain.proceed(request);
-        logResponse(response);
+
+//        Response response = chain.proceed(request);
+//        logResponse(response);
         return originalResponse;
     }
 
