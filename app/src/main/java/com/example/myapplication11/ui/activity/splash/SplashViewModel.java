@@ -71,13 +71,14 @@ public class SplashViewModel extends BaseViewModel {
         }else{
             HttpRequest.getInstance(ServerAddress.API_BING)
                     .getImage("js",0,1)
-                    .compose(HttpFactory.<ImageBean>schedulers())
+                    .compose(HttpFactory.schedulers())
                     .subscribe(new HttpDisposable<ImageBean>() {
                         @Override
                         public void success(ImageBean imageBean) {
                             mImage.postValue(imageBean);
                             Log.e("----------->",imageBean.toString());
                             url=imageBean.getImages().get(0).getCopyrightlink();
+                            Log.e("获取图片",imageBean.toString());
                         }
 
                         @Override
@@ -85,6 +86,7 @@ public class SplashViewModel extends BaseViewModel {
                             super.onError(e);
                             Log.e("----------->1",e.toString());
                             mImage.postValue(null);
+                            Log.e("获取图片1",e.toString());
                         }
                     });
         }
