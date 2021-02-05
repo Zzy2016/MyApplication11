@@ -20,8 +20,9 @@ import com.example.myapplication11.databinding.ViewLoadErrorBinding;
 import com.example.myapplication11.databinding.ViewLoadingBinding;
 import com.example.myapplication11.databinding.ViewNoDataBinding;
 import com.example.myapplication11.databinding.ViewNoNetworkBinding;
-import com.example.myapplication11.databinding.ViewNoNetworkBindingImpl;
+
 import com.example.myapplication11.manager.MyActivityManager;
+import com.example.myapplication11.ui.activity.login.LoginActivity;
 import com.example.myapplication11.ui.activity.main.MainActivity;
 import com.example.myapplication11.ui.activity.main.MainViewModel;
 
@@ -64,21 +65,21 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseVi
     }
 
     private void initLoadState() {
-        if(mViewModel!=null&&isSupportLoad()){
+        if (mViewModel != null && isSupportLoad()) {
             mViewModel.loadState.observe(getViewLifecycleOwner(), new Observer<LoadState>() {
                 @Override
                 public void onChanged(LoadState loadState) {
-
+                    switchLoadView(loadState);
                 }
             });
-            Activity activity= MyActivityManager.getsInstance().getCurrentActivity();
-            if(activity instanceof MainActivity){
-                ((MainActivity)activity).mDataBinding.fabTop.setVisibility(View.VISIBLE);
+            Activity activity = MyActivityManager.getsInstance().getCurrentActivity();
+            if (activity instanceof MainActivity) {
+                ((MainActivity) activity).mDataBinding.fabTop.setVisibility(View.VISIBLE);
             }
-        }else{
-            Activity activity=MyActivityManager.getsInstance().getCurrentActivity();
-            if(activity instanceof MainActivity){
-                ((MainActivity)activity).mDataBinding.fabTop.setVisibility(View.GONE);
+        } else {
+            Activity activity = MyActivityManager.getsInstance().getCurrentActivity();
+            if (activity instanceof MainActivity) {
+                ((MainActivity) activity).mDataBinding.fabTop.setVisibility(View.GONE);
             }
         }
     }
@@ -128,10 +129,10 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseVi
     }
 
     private void removeLoadView() {
-//        int childCount = mFragmentBaseBinding.flContentContainer.getChildCount();
-//        if (childCount > 1) {
-//            mFragmentBaseBinding.flContentContainer.removeViews(1, childCount - 1);
-//        }
+        int childCount = mFragmentBaseBinding.flContentContainer.getChildCount();
+        if (childCount > 1) {
+            mFragmentBaseBinding.flContentContainer.removeViews(1, childCount - 1);
+        }
     }
 
 

@@ -9,15 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication11.R;
-import com.example.myapplication11.base.BaseFragment;
-import com.example.myapplication11.databinding.FragmentProjectBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProjectFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProjectFragment extends BaseFragment<FragmentProjectBinding,ProjectViewModel> {
+public class ProjectFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,25 +62,5 @@ public class ProjectFragment extends BaseFragment<FragmentProjectBinding,Project
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_project, container, false);
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return 0;
-    }
-
-    @Override
-    protected void initViewModel() {
-
-    }
-
-    @Override
-    protected void bindViewModel() {
-
-    }
-
-    @Override
-    protected void init() {
-
     }
 }

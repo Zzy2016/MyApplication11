@@ -9,15 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication11.R;
-import com.example.myapplication11.base.BaseFragment;
-import com.example.myapplication11.databinding.FragmentNavigationBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link NavigationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NavigationFragment extends BaseFragment<FragmentNavigationBinding,NavigationViewModel> {
+public class NavigationFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,25 +62,5 @@ public class NavigationFragment extends BaseFragment<FragmentNavigationBinding,N
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_navigation, container, false);
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return 0;
-    }
-
-    @Override
-    protected void initViewModel() {
-
-    }
-
-    @Override
-    protected void bindViewModel() {
-
-    }
-
-    @Override
-    protected void init() {
-
     }
 }

@@ -52,7 +52,6 @@
                     android:background="?android:attr/windowBackground"
                     app:layout_behavior="com.example.myapplication11.behavior.BottomNavigationBehavior"
                     app:menu="@menu/bottom_nav_menu"
-
                     />
 
                 <fragment

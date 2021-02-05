@@ -9,15 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication11.R;
-import com.example.myapplication11.base.BaseFragment;
-import com.example.myapplication11.databinding.FragmentWeChatBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link WeChatFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WeChatFragment extends BaseFragment<FragmentWeChatBinding,WeChatViewModel> {
+public class WeChatFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,25 +62,5 @@ public class WeChatFragment extends BaseFragment<FragmentWeChatBinding,WeChatVie
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_we_chat, container, false);
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return R.layout.fragment_we_chat;
-    }
-
-    @Override
-    protected void initViewModel() {
-
-    }
-
-    @Override
-    protected void bindViewModel() {
-
-    }
-
-    @Override
-    protected void init() {
-
     }
 }
