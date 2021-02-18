@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-<!--        <variable-->
-<!--            name="collectViewModel"-->
-<!--            type="com.example.myapplication11.ui.nav.collect.CollectViewModel" />-->
 
+        <variable
+            name="collectViewModel"
+            type="com.example.myapplication11.ui.nav.collect.CollectViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication11.ui.articlelist.ArticleListViewModel" />
 
     </data>
 
@@ -16,7 +21,9 @@
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
             android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:srlEnableAutoLoadMore="true"
+            >
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle"

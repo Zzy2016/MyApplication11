@@ -1,4 +1,4 @@
-package com.example.myapplication11.ui.activity.articlelist;
+package com.example.myapplication11.ui.articlelist;
 
 import android.os.Bundle;
 

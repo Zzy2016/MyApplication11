@@ -140,7 +140,7 @@ public abstract class BaseFragment<DB extends ViewDataBinding, VM extends BaseVi
         if (mViewModel == null) {
             return;
         }
-        mViewModel.getCollect().observe(getViewLifecycleOwner(), new Observer<Object>() {
+        mViewModel.getCollect().observe(this, new Observer<Object>() {
             @Override
             public void onChanged(Object collect) {
                 if (collect == null) {

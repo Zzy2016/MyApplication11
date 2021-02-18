@@ -20,7 +20,7 @@ import java.util.List;
 
 import static com.example.myapplication11.config.App.getContext;
 
-public class HomeAdapter extends RecyclerView.Adapter<CommonViewHolder> {
+public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<HomeData> mList;
 
@@ -88,8 +88,10 @@ public class HomeAdapter extends RecyclerView.Adapter<CommonViewHolder> {
         return new CommonViewHolder(dataBinding);
     }
 
+
+
     @Override
-    public void onBindViewHolder(@NonNull CommonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         HomeData homeData = mList.get(position);
         if(homeData.getArticleList()!=null){
             ((CommonViewHolder) holder).binding.setVariable(BR.articleBean, homeData.getArticleList());

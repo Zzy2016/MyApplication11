@@ -80,6 +80,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     protected void onResume() {
         super.onResume();
+        login();
     }
 
     public void login() {
@@ -91,18 +92,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         setSupportActionBar(mDataBinding.toolBar);
         drawer = mDataBinding.drawerLayout;
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_navigation, R.id.navigation_project)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home
+                )
                 .setDrawerLayout(drawer)
                 .build();
-//
-//
+
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(mDataBinding.navView, navController);
-//
+
         BottomNavigationView navView = findViewById(R.id.navViewBottom);
         NavigationUI.setupWithNavController(navView, navController);
-
 
     }
 
@@ -115,19 +115,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     }
 
-//    private Fragment getFragment() {
-//        Fragment mMainNavFragment = getSupportFragmentManager().findFragmentById(R.id.navHostFragment);
-//        Fragment fragment = mMainNavFragment.getChildFragmentManager().getPrimaryNavigationFragment();
-//        if (fragment instanceof ScrollToTop) {
-//            return fragment;
-//        }
-//        return null;
-//    }
-
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
-//        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
 }
