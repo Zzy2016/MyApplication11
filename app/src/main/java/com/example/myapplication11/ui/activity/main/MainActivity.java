@@ -99,6 +99,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
         NavController navController = Navigation.findNavController(this, R.id.navHostFragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
         NavigationUI.setupWithNavController(mDataBinding.navView, navController);
 
         BottomNavigationView navView = findViewById(R.id.navViewBottom);

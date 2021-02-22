@@ -26,7 +26,7 @@ import java.util.List;
 public class HomeFragment extends BaseFragment<FragmentListBinding, HomeViewModel> implements ScrollToTop {
 
 
-    HomeAdapter commonAdapter;
+    private HomeAdapter commonAdapter;
 
     @Override
     protected int getLayoutResId() {

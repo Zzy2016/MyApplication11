@@ -1,6 +1,9 @@
+include ':httptestj'
+include ':httptest'
+include ':viewmodeltest'
+include ':nav2'
 include ':nav1'
 include ':nav'
-include ':share'
 include ':mylibrary'
 include ':app'
 rootProject.name = "My Application11"
