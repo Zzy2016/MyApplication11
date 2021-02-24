@@ -13,6 +13,7 @@ import com.example.myapplication11.bean.responsebean.ArticleBean;
 import com.example.myapplication11.config.Constants;
 import com.example.myapplication11.databinding.FragmentListBinding;
 import com.example.myapplication11.ui.adapter.CommonAdapter;
+import com.scwang.smart.refresh.header.ClassicsHeader;
 
 
 public class ArticleListFragment extends BaseFragment<FragmentListBinding, ArticleListViewModel> {
@@ -60,10 +61,19 @@ public class ArticleListFragment extends BaseFragment<FragmentListBinding, Artic
 
     @Override
     protected void init() {
+        mViewModel.setType(type);
+        mViewModel.setId(id);
+        mViewModel.loadData();
+
+        initRefreshLayout();
+        initRecyclerView();
     }
 
     private void initRefreshLayout() {
-
+        mDataBinding.refreshLayout.setPrimaryColorsId(android.R.color.white, R.color.colorPrimary);
+        mDataBinding.refreshLayout.setRefreshHeader(new ClassicsHeader(getContext()));
+        mDataBinding.refreshLayout.setOnRefreshListener(refresh -> mViewModel.refreshData(true));
+        mDataBinding.refreshLayout.setOnLoadMoreListener(refresh -> mViewModel.refreshData(false));
     }
 
     private void initRecyclerView() {
@@ -71,15 +81,27 @@ public class ArticleListFragment extends BaseFragment<FragmentListBinding, Artic
             @Override
             public void addListener(View root, ArticleBean itemData, int position) {
                 super.addListener(root, itemData, position);
+//                root.findViewById(R.id.card_view).setOnClickListener(v -> DetailsActivity.start(getActivity(), itemData.getLink()));
 
+                root.findViewById(R.id.iv_collect).setOnClickListener(v -> {
+                    itemData.setCollect(!itemData.isCollect());
+                    notifyDataSetChanged();
+                    mViewModel.changeArticleCollect(itemData.isCollect(), itemData.getId());
+                });
             }
         };
-
         mDataBinding.recycle.setAdapter(commonAdapter);
         mDataBinding.recycle.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        mViewModel.getArticleList().observe(this, articleListBean -> {
+            if (articleListBean.getCurPage() >= articleListBean.getPageCount()) {
+                mDataBinding.refreshLayout.finishLoadMoreWithNoMoreData();
+            }
+            mDataBinding.refreshLayout.finishRefresh();
+            mDataBinding.refreshLayout.finishLoadMore();
 
-
+            commonAdapter.onItemDatasChanged(articleListBean.getDatas());
+        });
 
     }
 

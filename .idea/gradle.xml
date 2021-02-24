@@ -19,7 +19,6 @@
             <option value="$PROJECT_DIR$/nav" />
             <option value="$PROJECT_DIR$/nav1" />
             <option value="$PROJECT_DIR$/nav2" />
-            <option value="$PROJECT_DIR$/viewmodeltest" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

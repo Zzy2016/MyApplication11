@@ -114,17 +114,38 @@ public class ArticleListViewModel extends BaseViewModel {
 
     //加载体系文章数据
     private void loadSystemArticleList() {
-        HttpRequest.getInstance().getSystemArticle(mPage,mId)
+        HttpRequest.getInstance().getSystemArticle(mPage, mId)
                 .compose(HttpFactory.schedulers())
                 .subscribe(new HttpDisposable<ArticleListBean>() {
                     @Override
                     public void success(ArticleListBean articleListBean) {
+                        if (articleListBean != null) {
+                            loadState.postValue(LoadState.SUCCESS);
 
+                            if (mPage == 0) {
+                                //第一次加载或刷新成功
+                                //清空列表，重新载入数据，设置刷新成功状态
+                                mList.clear();
+                                mList.addAll(articleListBean.getDatas());
+                                mArticleList.postValue(articleListBean);
+
+
+                            } else {
+                                //下拉加载更多成功
+                                //添加数据，设置下拉加载成功状态
+                                mList.addAll(articleListBean.getDatas());
+                                articleListBean.setDatas(mList);
+                                mArticleList.postValue(articleListBean);
+                            }
+                        } else {
+                            loadState.postValue(LoadState.NO_DATA);
+                        }
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
+                        loadState.postValue(LoadState.ERROR);
                     }
                 });
     }
@@ -132,17 +153,31 @@ public class ArticleListViewModel extends BaseViewModel {
     //加载项目文章数据
     private void loadProjectArticleList() {
         mPage++;
-        HttpRequest.getInstance().getProjectArticle(mPage,mId)
+        HttpRequest.getInstance().getProjectArticle(mPage, mId)
                 .compose(HttpFactory.schedulers())
                 .subscribe(new HttpDisposable<ArticleListBean>() {
                     @Override
                     public void success(ArticleListBean articleListBean) {
-
+                        if (mArticleList != null) {
+                            loadState.postValue(LoadState.SUCCESS);
+                            if (mPage == 1) {
+                                mList.clear();
+                                mList.addAll(articleListBean.getDatas());
+                                mArticleList.postValue(articleListBean);
+                            } else {
+                                mList.addAll(articleListBean.getDatas());
+                                articleListBean.setDatas(mList);
+                                mArticleList.postValue(articleListBean);
+                            }
+                        } else {
+                            loadState.postValue(LoadState.NO_DATA);
+                        }
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
+                        loadState.postValue(LoadState.ERROR);
                     }
                 });
     }

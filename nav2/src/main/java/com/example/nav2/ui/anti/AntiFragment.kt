@@ -1,4 +1,4 @@
-package com.example.nav2.ui.home
+package com.example.nav2.ui.anti
 
 import android.content.Context
 import android.os.Bundle
@@ -12,20 +12,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.nav2.R
 
-class HomeFragment : Fragment() {
+class AntiFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var dashboardViewModel: AntiViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel =
+                ViewModelProviders.of(this).get(AntiViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_anti, container, false)
+        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -33,42 +33,42 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("Fragment","Home   onCreate")
+        Log.e("Fragment","Dash   onCreate")
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.e("Fragment","Home   onAttach")
+        Log.e("Fragment","Dash   onAttach")
     }
 
     override fun onStart() {
         super.onStart()
-        Log.e("Fragment","Home   onStart")
+        Log.e("Fragment","Dash   onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e("Fragment","Home   onResume")
+        Log.e("Fragment","Dash   onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.e("Fragment","Home   onPause")
+        Log.e("Fragment","Dash   onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.e("Fragment","Home   onStop")
+        Log.e("Fragment","Dash   onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.e("Fragment","Home   onDestroy")
+        Log.e("Fragment","Dash   onDestroy")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.e("Fragment","Home   onDestroyView")
+        Log.e("Fragment","Dash   onDestroyView")
     }
     
 }
