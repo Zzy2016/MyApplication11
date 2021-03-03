@@ -1,6 +1,7 @@
 package com.example.myapplication11.ui.articlelist;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.myapplication11.base.BaseViewModel;
@@ -12,6 +13,7 @@ import com.example.myapplication11.http.request.HttpFactory;
 import com.example.myapplication11.http.request.HttpRequest;
 import com.example.myapplication11.util.NetworkUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleListViewModel extends BaseViewModel {
@@ -22,9 +24,9 @@ public class ArticleListViewModel extends BaseViewModel {
     private MutableLiveData<ArticleListBean> mArticleList;
     private List<ArticleBean> mList;
 
-    public ArticleListViewModel(MutableLiveData<ArticleListBean> mArticleList, List<ArticleBean> mList) {
-        this.mArticleList = mArticleList;
-        this.mList = mList;
+    public ArticleListViewModel() {
+        this.mArticleList = new MediatorLiveData<>();
+        this.mList = new ArrayList<>();
     }
 
     public void setType(int mType) {

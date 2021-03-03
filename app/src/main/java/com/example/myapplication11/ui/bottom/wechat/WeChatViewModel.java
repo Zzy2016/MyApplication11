@@ -9,6 +9,7 @@ import com.example.myapplication11.config.LoadState;
 import com.example.myapplication11.http.data.HttpDisposable;
 import com.example.myapplication11.http.request.HttpFactory;
 import com.example.myapplication11.http.request.HttpRequest;
+import com.example.myapplication11.util.CommonUtils;
 import com.example.myapplication11.util.NetworkUtils;
 
 import java.util.List;
@@ -38,10 +39,11 @@ public class WeChatViewModel extends BaseViewModel {
                 .subscribe(new HttpDisposable<List<WeChatBean>>() {
                     @Override
                     public void success(List<WeChatBean> weChatBeans) {
-                        if (weChatBeans.size() > 0) {
+
+                        if(!CommonUtils.isListEmpty(weChatBeans)){
                             dataList.addAll(weChatBeans);
                             loadState.postValue(LoadState.SUCCESS);
-                        } else {
+                        }else{
                             loadState.postValue(LoadState.NO_DATA);
                         }
                     }

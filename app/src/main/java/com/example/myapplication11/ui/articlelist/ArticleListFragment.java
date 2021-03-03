@@ -3,10 +3,10 @@ package com.example.myapplication11.ui.articlelist;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.myapplication11.BR;
 import com.example.myapplication11.R;
 import com.example.myapplication11.base.BaseFragment;
 import com.example.myapplication11.bean.responsebean.ArticleBean;

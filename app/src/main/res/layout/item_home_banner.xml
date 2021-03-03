@@ -21,7 +21,7 @@
             app:indicatorAlign="center"
             app:indicatorPaddingLeft="10dp"
             app:open_mz_mode="false"
-
+            app:bannerData="@{bannerData}"
             />
     </FrameLayout>
 </layout>
