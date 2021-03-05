@@ -15,10 +15,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/httptest" />
             <option value="$PROJECT_DIR$/httptestj" />
+            <option value="$PROJECT_DIR$/kot" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/nav" />
-            <option value="$PROJECT_DIR$/nav1" />
-            <option value="$PROJECT_DIR$/nav2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

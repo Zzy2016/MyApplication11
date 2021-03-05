@@ -1,5 +1,7 @@
 package com.example.myapplication11.ui.articlelist;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -57,10 +59,12 @@ public class ArticleListViewModel extends BaseViewModel {
     @Override
     public void reloadData() {
         loadData();
+        Log.e("加载数据","刷新数据");
     }
 
     //第一次加载数据
     public void loadData() {
+        Log.e("加载数据","加载数据");
         loadState.postValue(LoadState.LOADING);
         mPage = 0;
         mRefresh = false;

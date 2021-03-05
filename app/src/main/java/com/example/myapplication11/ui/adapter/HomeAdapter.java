@@ -44,6 +44,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
      */
     public void addTopClickListener(ArticleBean itemData) {
     }
+
     /**
      * 添加监听回调
      *
@@ -51,7 +52,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
      */
     public void addTopCollectListener(ArticleBean itemData) {
     }
-
 
 
     /**
@@ -89,16 +89,15 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
 
-
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         HomeData homeData = mList.get(position);
-        if(homeData.getArticleList()!=null){
+        if (homeData.getArticleList() != null) {
             ((CommonViewHolder) holder).binding.setVariable(BR.articleBean, homeData.getArticleList());
-        }else if(homeData.getTopArticleList() != null){
+        } else if (homeData.getTopArticleList() != null) {
             ((CommonViewHolder) holder).binding.setVariable(BR.topArticle, homeData.getTopArticleList());
-            showTopArticle(((CommonViewHolder) holder).binding.getRoot().findViewById(R.id.recycler_view),homeData.getTopArticleList());
-        }else{
+            showTopArticle(((CommonViewHolder) holder).binding.getRoot().findViewById(R.id.recycler_view), homeData.getTopArticleList());
+        } else {
             ((CommonViewHolder) holder).binding.setVariable(BR.bannerData, homeData.getBannerData());
         }
         addListener(((CommonViewHolder) holder).binding.getRoot(), mList.get(position), position);
@@ -106,9 +105,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         ((CommonViewHolder) holder).binding.executePendingBindings();
     }
 
-    private void showTopArticle(RecyclerView recyclerView, HomeData.TopArticle topArticle){
+    private void showTopArticle(RecyclerView recyclerView, HomeData.TopArticle topArticle) {
 
-        CommonAdapter commonAdapter = new CommonAdapter<ArticleBean>(topArticle.getArticleBeanList(),R.layout.item_article, BR.articleBean) {
+        CommonAdapter commonAdapter = new CommonAdapter<ArticleBean>(topArticle.getArticleBeanList(), R.layout.item_article, BR.articleBean) {
             @Override
             public void addListener(View root, ArticleBean itemData, int position) {
                 super.addListener(root, itemData, position);
@@ -134,7 +133,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         StaggeredGridLayoutManager layoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
 //        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);
     }

@@ -2,65 +2,68 @@ package com.example.myapplication11.ui.bottom.system;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication11.R;
+import com.example.myapplication11.base.BaseFragment;
+import com.example.myapplication11.base.BaseViewModel;
+import com.example.myapplication11.databinding.FragmentListBinding;
+import com.example.myapplication11.navinterface.ScrollToTop;
+import com.scwang.smart.refresh.layout.api.RefreshFooter;
+import com.scwang.smart.refresh.layout.api.RefreshHeader;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.constant.RefreshState;
+import com.scwang.smart.refresh.layout.listener.OnMultiListener;
+import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SystemFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SystemFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class SystemFragment extends BaseFragment<FragmentListBinding, SystemViewModel> implements ScrollToTop {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public SystemFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SystemFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SystemFragment newInstance(String param1, String param2) {
-        SystemFragment fragment = new SystemFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.fragment_list;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    protected void initViewModel() {
+        mViewModel = new ViewModelProvider(this).get(SystemViewModel.class);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_system, container, false);
+    protected void bindViewModel() {
+
+    }
+
+    @Override
+    protected void init() {
+        mViewModel.loadData();
+    }
+
+    private void initRefreshLayout() {
+        mDataBinding.refreshLayout.setEnableLoadMore(false);
+        mDataBinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mViewModel.refreshData();
+            }
+        });
+
+    }
+
+    private void setRecycleView() {
+
+    }
+
+
+    @Override
+    public void scrollToTop() {
+        mDataBinding.recycle.smoothScrollToPosition(0);
     }
 }

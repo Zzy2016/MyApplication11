@@ -1,7 +1,6 @@
+include ':kot'
 include ':httptestj'
 include ':httptest'
-include ':nav2'
-include ':nav1'
 include ':nav'
 include ':mylibrary'
 include ':app'
