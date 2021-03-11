@@ -1,4 +1,4 @@
-package com.example.appkotlin.activity
+package com.example.appkotlin.activity.main
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
