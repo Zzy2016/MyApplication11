@@ -60,6 +60,7 @@ public class HomeFragment extends BaseFragment<FragmentListBinding, HomeViewMode
 
 
     private void initRefreshLayout() {
+
         mDataBinding.refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {

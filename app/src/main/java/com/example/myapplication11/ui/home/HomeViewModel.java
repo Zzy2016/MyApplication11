@@ -88,11 +88,11 @@ public class HomeViewModel extends BaseViewModel {
                     @Override
                     public void success(List<HomeBanner> homeBanners) {
                         mList.clear();
-                        HomeData homeData=new HomeData();
+                        HomeData homeData = new HomeData();
                         homeData.setBannerData(new BannerData(homeBanners));
                         mList.add(homeData);
 
-                        if(!mRefresh){
+                        if (!mRefresh) {
                             loadState.postValue(LoadState.SUCCESS);
                         }
 
@@ -118,7 +118,7 @@ public class HomeViewModel extends BaseViewModel {
                 .subscribe(new HttpDisposable<List<ArticleBean>>() {
                     @Override
                     public void success(List<ArticleBean> articleBeans) {
-                        Log.e("获取文章",articleBeans.toString() +(articleBeans!=null&&articleBeans.size() == 0));
+                        Log.e("获取文章", articleBeans.toString() + (articleBeans != null && articleBeans.size() == 0));
                         if (articleBeans != null && articleBeans.size() != 0) {
                             HomeData homeData = new HomeData();
                             HomeData.TopArticle topArticle = new HomeData.TopArticle();

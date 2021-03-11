@@ -1,3 +1,6 @@
+include ':appkotlin'
+include ':myapplication2'
+include ':myapplication'
 include ':kot'
 include ':httptestj'
 include ':httptest'

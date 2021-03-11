@@ -1,17 +1,22 @@
 package com.example.kot
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.custom.async
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
 import java.net.URL
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,11 +43,25 @@ class MainActivity : AppCompatActivity() {
         forecastList.adapter = adapter
 
 
-
+        /*
+        * async 用于在其他线程执行代码
+        * uiThread回到主线程
+        * uiThread依赖调用者，如果activity.isFinish()返回true，uiThread不会执行
+        * 如果需要Future来工作，async返回一个Java future,如果您需要返回一一个future，使用asyncResult
+        * */
         async {
-
+            Request("https://www.baidu.com").run()
+            uiThread {
+                longToast("Request performed")
+            }
         }
 
+
+//        val f1=Forecast(Date(),27.5f,"Shine day")
+//        val f2=f1.copy(temperature = 30f)
+
+//        tv.setOnClickListener(View.OnClickListener { view -> var intent: Intent = Intent(MainActivity, MainActivity.class) })
+        tv.setOnClickListener { toast("ceshi",Toast.LENGTH_SHORT) }
 
 
     }
@@ -60,8 +79,6 @@ class MainActivity : AppCompatActivity() {
     fun Context.toast(message: String, length: Int) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
-
 
 
 }

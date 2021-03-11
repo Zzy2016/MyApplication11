@@ -1,9 +1,12 @@
 package com.example.kot
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlin.coroutines.coroutineContext
 
 class ForeAdapter(val items: List<String>) : RecyclerView.Adapter<ForeAdapter.ViewHolder>() {
 
@@ -15,6 +18,9 @@ class ForeAdapter(val items: List<String>) : RecyclerView.Adapter<ForeAdapter.Vi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.tv.text = items[position]
+
+
+
     }
 
     override fun getItemCount(): Int {
