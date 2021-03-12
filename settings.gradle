@@ -1,3 +1,4 @@
+include ':myapplication11'
 include ':appkotlin'
 include ':myapplication2'
 include ':myapplication'

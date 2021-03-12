@@ -1,5 +1,7 @@
 package com.example.myapplication11.ui.home;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,8 @@ public class HomeFragment extends BaseFragment<FragmentListBinding, HomeViewMode
     protected void initViewModel() {
         mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         initDataChange();
+
+
     }
 
     @Override
