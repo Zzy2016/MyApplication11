@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,18 +25,30 @@ public class MainActivity extends AppCompatActivity {
         Log.e(TAG, "Main onCreate   " + getIntent().getStringExtra("current"));
         Log.e(TAG, ActivityListTest.getInstance().getActivities().toString());
 
-        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-//                intent.putExtra("current", System.currentTimeMillis()+"");
-//                startActivity(intent);
+//        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//            @Override
+//            public void onClick(View v) {
+////                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+////                intent.putExtra("current", System.currentTimeMillis()+"");
+////                startActivity(intent);
+//
+//                startActivity(new Intent(MainActivity.this, MainActivity2.class),
+//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+//            }
+//        });
 
-                startActivity(new Intent(MainActivity.this, MainActivity2.class),
-                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
-            }
-        });
+        PackageManager pm = getPackageManager();
+//        Log.e("PACKAGE_MANAGER",pm.getInstalledPackages(PackageManager.GET_ACTIVITIES).toString());
+
+//        pm.getInstalledPackages(PackageManager.GET_ACTIVITIES);
+        try {
+
+            Log.e("Package_manager",  (pm.getPackageInfo("com.example.myapplication", PackageManager.GET_ACTIVITIES)==null)+" ");
+            Log.e("Package_manager",pm.getPackageInfo("com.example.myapplication",PackageManager.GET_ACTIVITIES).versionName.toString());
+        } catch (Exception e) {
+
+        }
 
     }
 

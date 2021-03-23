@@ -43,12 +43,10 @@ abstract class BaseFragment<DM : ViewDataBinding, VM : BaseViewModel> : Fragment
 
         mDataBinding.lifecycleOwner = this
 
-        initView()
-
 
         bindViewModel()
         initLoadState()
-
+        init()
         return baseBinding.root
     }
 
@@ -116,7 +114,7 @@ abstract class BaseFragment<DM : ViewDataBinding, VM : BaseViewModel> : Fragment
     //绑定viewModel
     abstract fun bindViewModel()
 
-    abstract fun initView()
+    abstract fun init()
 
 //    companion object {
 //        /**

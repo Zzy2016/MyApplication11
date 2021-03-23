@@ -1,19 +1,27 @@
 package com.example.appkotlin.net
 
 import android.content.Context
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object GetRetrofit {
+class GetRetrofit {
 
-//    var retrofit: Retrofit
-//
-//    fun getRetrofit(): Retrofit {
-//        var retrofit = Retrofit.Builder().baseUrl("https://wanandroid.com/")
-//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build()
-//    }
+    lateinit var retrofit: Retrofit
+
+
+    companion object Factory {
+        var okHttpClient = OkHttpClient.Builder().build()
+
+
+        fun getInstance():Unit{
+
+        }
+
+    }
+
+
+
 
 }

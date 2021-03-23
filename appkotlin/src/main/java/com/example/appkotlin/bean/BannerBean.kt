@@ -1,7 +1,7 @@
 package com.example.appkotlin.bean
 
 data class BannerBean(
-        val `data`: List<Data>,
+        val data: List<Data>,
         val errorCode: Int,
         val errorMsg: String
 )
