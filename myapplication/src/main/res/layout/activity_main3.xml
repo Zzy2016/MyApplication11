@@ -6,4 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rg"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="rb1"
+            android:gravity="center"
+            android:textColor="@drawable/color_select"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="rb2"
+            android:gravity="center"
+            android:textColor="@drawable/color_select"
+            />
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="rb3"
+            android:gravity="center"
+            android:textColor="@drawable/color_select"
+            />
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:text="rb4"
+            android:gravity="center"
+            android:textColor="@drawable/color_select"
+            />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

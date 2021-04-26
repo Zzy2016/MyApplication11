@@ -22,11 +22,6 @@ class MyApplication : Application() {
         CONTEXT = applicationContext
     }
 
-//    @JvmName("getContext1")
-//    fun getContext(): Context {
-//        return context
-//    }
-
 
     @SuppressLint("ResourceAsColor")
     fun setRefresh() {

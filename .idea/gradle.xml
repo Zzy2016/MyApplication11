@@ -14,13 +14,16 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/appkotlin" />
-            <option value="$PROJECT_DIR$/httptest" />
+            <option value="$PROJECT_DIR$/client" />
             <option value="$PROJECT_DIR$/httptestj" />
             <option value="$PROJECT_DIR$/kot" />
             <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/myapplication11" />
+            <option value="$PROJECT_DIR$/myapplication2" />
             <option value="$PROJECT_DIR$/mylibrary" />
             <option value="$PROJECT_DIR$/nav" />
+            <option value="$PROJECT_DIR$/server" />
+            <option value="$PROJECT_DIR$/test1launchmode" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -98,7 +98,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ((CommonViewHolder) holder).binding.setVariable(BR.topArticle, homeData.getTopArticleList());
             showTopArticle(((CommonViewHolder) holder).binding.getRoot().findViewById(R.id.recycler_view), homeData.getTopArticleList());
         } else {
-            ((CommonViewHolder) holder).binding.setVariable(BR.bannerData, homeData.getBannerData());
+//            ((CommonViewHolder) holder).binding.setVariable(BR.bannerData, homeData.getBannerData());/**/
+            
         }
         addListener(((CommonViewHolder) holder).binding.getRoot(), mList.get(position), position);
         //防止数据闪烁

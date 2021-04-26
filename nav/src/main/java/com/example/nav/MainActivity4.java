@@ -50,6 +50,8 @@ public class MainActivity4 extends AppCompatActivity {
     }
 
 
+
+
     public static class BannerViewHolder implements MZViewHolder<ImageBean> {
 
         public ImageView imageView;

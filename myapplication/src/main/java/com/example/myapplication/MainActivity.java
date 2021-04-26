@@ -1,16 +1,10 @@
 package com.example.myapplication;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,37 +14,41 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ActivityListTest.getInstance().addActivity(this);
+//        ActivityListTest.getInstance().addActivity(this);
 
-        Log.e(TAG, "Main onCreate   " + getIntent().getStringExtra("current"));
-        Log.e(TAG, ActivityListTest.getInstance().getActivities().toString());
-
-//        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
-//            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//            @Override
-//            public void onClick(View v) {
-////                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-////                intent.putExtra("current", System.currentTimeMillis()+"");
-////                startActivity(intent);
+//        Log.e(TAG, "Main onCreate   " + getIntent().getStringExtra("current"));
+//        Log.e(TAG, ActivityListTest.getInstance().getActivities().toString());
 //
-//                startActivity(new Intent(MainActivity.this, MainActivity2.class),
-//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
-//            }
-//        });
-
-        PackageManager pm = getPackageManager();
-//        Log.e("PACKAGE_MANAGER",pm.getInstalledPackages(PackageManager.GET_ACTIVITIES).toString());
-
-//        pm.getInstalledPackages(PackageManager.GET_ACTIVITIES);
-        try {
-
-            Log.e("Package_manager",  (pm.getPackageInfo("com.example.myapplication", PackageManager.GET_ACTIVITIES)==null)+" ");
-            Log.e("Package_manager",pm.getPackageInfo("com.example.myapplication",PackageManager.GET_ACTIVITIES).versionName.toString());
-        } catch (Exception e) {
-
-        }
+////        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+////            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+////            @Override
+////            public void onClick(View v) {
+//////                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+//////                intent.putExtra("current", System.currentTimeMillis()+"");
+//////                startActivity(intent);
+////
+////                startActivity(new Intent(MainActivity.this, MainActivity2.class),
+////                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
+////            }
+////        });
+//
+//        PackageManager pm = getPackageManager();
+////        Log.e("PACKAGE_MANAGER",pm.getInstalledPackages(PackageManager.GET_ACTIVITIES).toString());
+//
+////        pm.getInstalledPackages(PackageManager.GET_ACTIVITIES);
+//        try {
+//
+//            Log.e("Package_manager",  (pm.getPackageInfo("com.example.myapplication", PackageManager.GET_ACTIVITIES)==null)+" ");
+//            Log.e("Package_manager",pm.getPackageInfo("com.example.myapplication",PackageManager.GET_ACTIVITIES).versionName.toString());
+//        } catch (Exception e) {
+//
+//        }
 
     }
+
+
+
+
 
     @Override
     protected void onStart() {
@@ -76,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         setIntent(intent);
         Log.e(TAG, "Main onNewIntent" + intent.getStringExtra("current"));
-
-
     }
 
     @Override

@@ -2,17 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+<!--    <data>-->
 
-        <variable
-            name="collectViewModel"
-            type="com.example.myapplication11.ui.nav.collect.CollectViewModel" />
+<!--        <variable-->
+<!--            name="collectViewModel"-->
+<!--            type="com.example.myapplication11.ui.nav.collect.CollectViewModel" />-->
 
-        <variable
-            name="viewModel"
-            type="com.example.myapplication11.ui.articlelist.ArticleListViewModel" />
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.example.myapplication11.ui.articlelist.ArticleListViewModel" />-->
 
-    </data>
+<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

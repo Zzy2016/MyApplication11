@@ -1,7 +1,5 @@
 package com.example.myapplication11.ui.home;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -15,7 +13,6 @@ import com.example.myapplication11.bean.responsebean.ArticleBean;
 import com.example.myapplication11.bean.responsebean.home.HomeData;
 import com.example.myapplication11.databinding.FragmentListBinding;
 import com.example.myapplication11.navinterface.ScrollToTop;
-import com.example.myapplication11.ui.activity.web.DetailActivity;
 import com.example.myapplication11.ui.adapter.HomeAdapter;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
