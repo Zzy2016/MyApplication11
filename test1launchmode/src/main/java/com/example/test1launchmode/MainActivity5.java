@@ -118,9 +118,9 @@ public class MainActivity5 extends AppCompatActivity {
                 // 最后通知图库更新
 //                Uri photoUri = FileProvider.getUriForFile(MainActivity5.this, "com.example.test1launchmode.fileprovider", photoFile);
 
-//                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(photoFile)));
-                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,FileProvider.getUriForFile(MainActivity5.this, "com.example.test1launchmode.fileprovider", photoFile)));
-                bitmap.compress(Bitmap.CompressFormat.JPEG,100,new FileOutputStream(photoFile));
+                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(photoFile)));//三星
+//                sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,FileProvider.getUriForFile(MainActivity5.this, "com.example.test1launchmode.fileprovider", photoFile)));
+//                bitmap.compress(Bitmap.CompressFormat.JPEG,100,new FileOutputStream(photoFile));
 
 
 //                try {
