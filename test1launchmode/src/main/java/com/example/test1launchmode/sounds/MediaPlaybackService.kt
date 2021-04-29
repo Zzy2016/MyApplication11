@@ -30,7 +30,7 @@ class MediaPlaybackService : MediaBrowserServiceCompat() {
             stateBuilder = PlaybackStateCompat.Builder().setActions(PlaybackStateCompat.ACTION_PLAY or PlaybackStateCompat.ACTION_PLAY_PAUSE)
             setPlaybackState(stateBuilder.build())
             setCallback()
-            setSessionToken()
+            setSessionToken(mediaSession)
         }
 
     }
