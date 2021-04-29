@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test1launchmode">
+
     <!-- <uses-permission android:name="android.permission.CAMERA"  /> -->
     <!-- <uses-feature -->
     <!-- android:name="android.hardware.camera" -->
@@ -21,7 +22,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication11">
-        <activity android:name=".media.MainActivity"></activity>
+        <service
+            android:name=".sounds.MediaPlaybackService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.test1launchmode.sounds.MediaPlaybackService.player" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".media.MainActivity" />
         <activity android:name=".Camera3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CameraPhotoActivity" />
-        <activity android:name=".CameraActivity1"></activity>
+        <activity android:name=".CameraActivity1" />
         <activity android:name=".Camera2Activity" />
         <activity android:name=".ForCameraActivity" />
         <activity android:name=".VideoActivity" />
