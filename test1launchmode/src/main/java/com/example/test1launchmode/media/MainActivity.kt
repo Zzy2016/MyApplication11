@@ -1,8 +1,13 @@
 package com.example.test1launchmode.media
 
+import android.media.MediaPlayer
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.media.session.MediaSessionCompat
+import android.util.Log
+import androidx.annotation.RequiresApi
 import com.example.test1launchmode.R
 
 /*
@@ -23,16 +28,47 @@ import com.example.test1launchmode.R
 *
 * 视频应用需要一个窗口来查看内容，通常用单个Activity
 * 音频不总是需要显示界面，一旦开始播放音频，播放器可以作为后台任务，Activity(界面) + Service(播放器)**
-*
-*
-*
+
 * */
 class MainActivity : AppCompatActivity() {
+    private lateinit var mediaPlayer: MediaPlayer
+
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
 
 
+        mediaPlayer = MediaPlayer()
+        mediaPlayer.setDataSource(resources.openRawResourceFd(R.raw.vid_bigbuckbunny))
+        Log.e("Prepare-0", System.currentTimeMillis().toString())
+        mediaPlayer.prepareAsync()
+
+        mediaPlayer.setOnPreparedListener {
+            Log.e("Prepare-1", System.currentTimeMillis().toString())
+            it.start()
+        }
 
     }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer!!.release()
+    }/*
+    Idle
+    End
+    Error
+    Initialized   setDateDource
+    Prepared      prepare  prepareSync
+    Preparing
+    Started       start
+    Paused
+    Stopped
+    PlaybackCompleted
+
+
+
+    */
+
 }
