@@ -20,7 +20,8 @@ public class Client {
 
         DynamicProxy proxy = new DynamicProxy(xiaoming);
         ClassLoader loader = xiaoming.getClass().getClassLoader();
-        ILawsuit lawyer = (ILawsuit) Proxy.newProxyInstance(loader, new Class[]{ILawsuit.class}, proxy);
+//        ILawsuit lawyer = (ILawsuit) Proxy.newProxyInstance(loader, new Class[]{ILawsuit.class}, proxy);
+        ILawsuit lawyer = (ILawsuit) Proxy.newProxyInstance(loader, Xiaoming.class.getInterfaces(), proxy);
         lawyer.burden();
 
     }

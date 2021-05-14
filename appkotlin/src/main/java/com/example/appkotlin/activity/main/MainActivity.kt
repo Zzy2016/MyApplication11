@@ -8,6 +8,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.appkotlin.R
+import com.example.appkotlin.net.RetrofitTest
+import kotlinx.coroutines.MainScope
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,5 +29,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+    }
+
+    suspend fun getBanner() {
+        RetrofitTest.getApi()?.getBanner()
     }
 }
