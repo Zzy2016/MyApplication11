@@ -1,3 +1,4 @@
+include ':module1'
 include ':test1launchmode'
 include ':client'
 include ':myapplication2'

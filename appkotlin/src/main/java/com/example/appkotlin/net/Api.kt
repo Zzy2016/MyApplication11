@@ -1,6 +1,6 @@
-package com.example.appkotlin.test
+package com.example.appkotlin.net
 
-import retrofit2.Call
+import com.example.appkotlin.test.BannerModel
 import retrofit2.http.GET
 
 interface Api {
