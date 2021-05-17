@@ -1,7 +1,9 @@
 package com.example.mediatest
 
 
+import android.content.Intent
 import android.hardware.Camera
+import android.media.CamcorderProfile
 import android.media.MediaRecorder
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -61,7 +63,12 @@ class MediaRecorderActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-
+        if(holder.surface==null){
+            return
+        }
+        camera!!.stopPreview()
+        camera!!.setPreviewDisplay(holder)
+        camera!!.startPreview()
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
@@ -69,15 +76,33 @@ class MediaRecorderActivity : AppCompatActivity(), SurfaceHolder.Callback {
     }
 
     private fun startVideoRecord() {
-//        mediaRecorder=MediaRecorder().apply {
-//            camera!!.unlock()
-//            setCamera(camera)
-//
-//        }
+        mediaRecorder=MediaRecorder().apply {
+            camera!!.unlock()
+            setCamera(camera!!)
+            setOrientationHint(90)
+            setAudioSource(MediaRecorder.AudioSource.CAMCORDER)
+            setVideoSource(MediaRecorder.VideoSource.CAMERA)
+
+            setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH))
+            setOutputFile(videoRecorderFile)
+//            setPreviewDisplay(surface.holder.surface)
+            prepare()
+            start()
+        }
+        isRecording=true
+        video_record.text="停止录制"
     }
 
     private fun stopVideoRecord() {
-
+        mediaRecorder?.let {
+            it.stop()
+            it.release()
+            mediaRecorder=null
+        }
+        camera!!.lock()
+        isRecording=false
+        video_record.text="kaishi"
+        startActivity(Intent(this,MediaPlayerActivity::class.java))
     }
 
 }
