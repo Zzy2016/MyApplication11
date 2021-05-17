@@ -84,11 +84,6 @@ public class Camera2Provider {
             for (String item : cameraManager.getCameraIdList()) {
                 CameraCharacteristics cameraCharacteristics = cameraManager.getCameraCharacteristics(item);
                 if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) == CameraCharacteristics.LENS_FACING_BACK) {
-//                    StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-//                    if (map != null) {
-//                        previewSize = CameraUtil.getOptimalSize(map.getOutputSizes(SurfaceTexture.class), width, height);
-//                        mCameraId = cameraId;
-//                    }
                     if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                         return;
                     }
