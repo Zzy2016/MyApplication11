@@ -1,11 +1,8 @@
 package com.example.module1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +11,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        WindowManager windowManager= (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+//        WindowManager windowManager= (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+
+
+//        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+//        builder.setIcon();
+//        builder.setMessage();
 
 
 
