@@ -1,10 +1,11 @@
 package com.example.myapplication.page
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,12 +29,51 @@ class BlankFragment2 : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        Log.e("Fragment", "Fragment2  onCreate")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        Log.e("Fragment", "Fragment2  onCreateView")
         return inflater.inflate(R.layout.fragment_blank2, container, false)
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.e("Fragment", "Fragment2  onStart")
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e("Fragment", "Fragment2  onResume")
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e("Fragment", "Fragment2  onPause")
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e("Fragment", "Fragment2  onStop")
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.e("Fragment", "Fragment2  onDestroyView")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("Fragment", "Fragment2  onDestroy")
+
     }
 
     companion object {
