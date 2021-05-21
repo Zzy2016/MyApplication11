@@ -27,6 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
 //        getWindow().setExitTransition(new Explode().setDuration(2000));
 
 
+
 //        getWindow().setEnterTransition(new Slide().setDuration(2000));
 //        getWindow().setExitTransition(new Slide().setDuration(2000));
 
