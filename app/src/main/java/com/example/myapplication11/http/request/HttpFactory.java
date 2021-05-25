@@ -25,7 +25,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
  */
 public class HttpFactory {
 
-    public static String HTTP_HOST_URL = "";
+    public static String HTTP_HOST_URL = "https://www.wanandroid.com";
     public static HttpResponseInterface httpResponseInterface = null;
 
     private HttpFactory() {

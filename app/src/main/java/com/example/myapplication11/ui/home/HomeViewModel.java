@@ -1,5 +1,6 @@
 package com.example.myapplication11.ui.home;
 
+import android.preference.PreferenceActivity;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -7,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.myapplication11.base.BaseViewModel;
 import com.example.myapplication11.bean.responsebean.ArticleBean;
 import com.example.myapplication11.bean.responsebean.ArticleListBean;
+import com.example.myapplication11.bean.responsebean.Banners;
 import com.example.myapplication11.bean.responsebean.HomeBanner;
 import com.example.myapplication11.bean.responsebean.home.BannerData;
 import com.example.myapplication11.bean.responsebean.home.HomeData;
@@ -74,37 +76,55 @@ public class HomeViewModel extends BaseViewModel {
     }
 
     private void loadBanner() {
-        if (NetworkUtils.isConnected() && NetworkUtils.getWifiEnabled()) {
-            loadBannerByNet();
-        } else {
-            loadBannerByDb();
-        }
+//        if (NetworkUtils.isConnected() && NetworkUtils.getWifiEnabled()) {
+//            loadBannerByNet();
+//        } else {
+//            loadBannerByDb();
+//        }
+        loadBannerByNet();
     }
 
     //获取banner
     private void loadBannerByNet() {
-        HttpRequest.getInstance().getBanner().compose(HttpFactory.schedulers())
-                .subscribe(new HttpDisposable<List<HomeBanner>>() {
-                    @Override
-                    public void success(List<HomeBanner> homeBanners) {
-                        mList.clear();
-                        HomeData homeData = new HomeData();
-                        homeData.setBannerData(new BannerData(homeBanners));
-                        mList.add(homeData);
-
-                        if (!mRefresh) {
-                            loadState.postValue(LoadState.SUCCESS);
-                        }
-
-                        loadTopArticleList();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
-                        loadTopArticleList();
-                    }
-                });
+//        HttpRequest.getInstance().getBanner().compose(HttpFactory.schedulers())
+//                .subscribe(new HttpDisposable<Banners>() {
+//                    @Override
+//                    public void success(Banners banners) {
+//                        mList.clear();
+//                        HomeData homeData = new HomeData();
+//                        homeData.setBannerData(banners.getData());
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        super.onError(e);
+//
+//                    }
+//                });
+//        HttpRequest.getInstance().getBanner().compose(HttpFactory.schedulers())
+//                .subscribe(new HttpDisposable<List<HomeBanner>>() {
+//                    @Override
+//                    public void success(List<HomeBanner> homeBanners) {
+//                        mList.clear();
+//                        HomeData homeData = new HomeData();
+//                        homeData.setBannerData(new BannerData(homeBanners));
+//                        mList.add(homeData);
+//
+//                        if (!mRefresh) {
+//                            loadState.postValue(LoadState.SUCCESS);
+//                        }
+//
+//                        Log.e("首页数据banner",homeData.toString());
+//                        loadTopArticleList();
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        super.onError(e);
+//                        Log.e("首页bannner",e.toString());
+//                        loadTopArticleList();
+//                    }
+//                });
     }
 
     private void loadBannerByDb() {

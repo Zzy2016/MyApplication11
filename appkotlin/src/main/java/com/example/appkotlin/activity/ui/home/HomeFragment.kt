@@ -38,7 +38,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         mViewModel.loadData()
 
         mViewModel.mutableBanner.observe(this, Observer { bannerBean ->
-            mzBanner.setPages(bannerBean.data as List<Nothing>?, MZHolderCreator<BannerViewHolder> { return@MZHolderCreator BannerViewHolder() })
+            mzBanner.setPages(bannerBean.data as List<Nothing>?, MZHolderCreator<BannerViewHolder>
+            { return@MZHolderCreator BannerViewHolder() })
         })
 
 

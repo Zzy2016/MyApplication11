@@ -16,9 +16,7 @@
         <activity android:name=".test.Main2Activity">
 
         </activity>
-        <activity android:name=".test.TestActivity">
 
-        </activity>
         <activity android:name=".activity.Login.LoginActivity" />
         <activity android:name=".activity.splash.SplashActivity" />
         <activity

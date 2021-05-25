@@ -2,6 +2,7 @@ package com.example.myapplication11.http.request;
 
 import com.example.myapplication11.bean.responsebean.ArticleBean;
 import com.example.myapplication11.bean.responsebean.ArticleListBean;
+import com.example.myapplication11.bean.responsebean.Banners;
 import com.example.myapplication11.bean.responsebean.Coin;
 import com.example.myapplication11.bean.responsebean.CoinBean;
 import com.example.myapplication11.bean.responsebean.CoinRankBean;
@@ -82,7 +83,7 @@ public interface ApiAddress {
      * @return
      */
     @GET("banner/json")
-    Observable<List<HomeBanner>> getBanner();
+    Observable<Banners> getBanner();
 
 
     /**

@@ -1,3 +1,4 @@
+include ':aboutresult'
 include ':bitmaptest'
 include ':sound'
 include ':mediatest'

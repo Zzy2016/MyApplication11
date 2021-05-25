@@ -37,7 +37,6 @@ public class HomeFragment extends BaseFragment<FragmentListBinding, HomeViewMode
         mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         initDataChange();
 
-
     }
 
     @Override
