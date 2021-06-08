@@ -8,22 +8,21 @@ import kotlin.math.sign
 //}
 
 
-//class SingleTest private constructor() {
-//    companion object {
-//        private var instance: SingleTest? = null
-//            get() {
-//                if (field == null) {
-//                    field = SingleTest()
-//                }
-//                return field
-//            }
-//
-//
-//        fun get(): SingleTest {
-//            return instance!!
-//        }
-//    }
-//}
+class SingleTest private constructor() {
+    companion object {
+        private var instance: SingleTest? = null
+            get() {
+                if (field == null) {
+                    field = SingleTest()
+                }
+                return field
+            }
+
+        fun get(): SingleTest {
+            return instance!!
+        }
+    }
+}
 
 //线程安全
 //class SingleTest private constructor() {
@@ -54,17 +53,18 @@ import kotlin.math.sign
 
 
 //静态内部
-class SingleTest private constructor() {
-    companion object {
-        val instance = SingleTest
-    }
-
-    private object SingleTestHolder {
-        val holder = SingleTest()
-    }
-}
+//class SingleTest private constructor() {
+//    companion object {
+//        val instance = SingleTest
+//    }
+//
+//    private object SingleTestHolder {
+//        val holder = SingleTest()
+//    }
+//}
 
 fun main() {
 //    SingleTest.get()
 
 }
+

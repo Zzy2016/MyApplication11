@@ -1,10 +1,11 @@
 package com.example.appkotlin.base
 
+import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.appkotlin.LoadState
 
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() ,DefaultLifecycleObserver{
 
 
     var loadState = MutableLiveData<LoadState>()

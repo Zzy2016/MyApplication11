@@ -49,6 +49,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding,VM extends BaseVie
         mDataBinding=DataBindingUtil.inflate(getLayoutInflater(),getLayoutResId(),mActivityBaseBinding.flContentContainer,true);
         initViewModel();
         bindViewModel();
+
         mDataBinding.setLifecycleOwner(this);
         initLoadState();
         init();

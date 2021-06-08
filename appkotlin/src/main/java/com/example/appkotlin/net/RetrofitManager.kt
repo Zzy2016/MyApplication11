@@ -6,7 +6,30 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-
+//class RetrofitManager private constructor() {
+//    companion object {
+////        private var retrofitManager: RetrofitManager? = null
+////            get() {
+////                if (field == null) {
+////                    retrofitManager = RetrofitManager()
+////                }
+////                return field
+////            }
+//
+//        private var retrofit: Retrofit? = null
+//            get() {
+//                if (field == null) {
+//                    field = Retrofit.Builder().baseUrl("https://www.wanandroid.com").build()
+//                }
+//                return field
+//            }
+//
+//        @Synchronized
+//        fun getApi(): ProjectApi? {
+//            return retrofit!!.create(ProjectApi::class.java)
+//        }
+//    }
+//}
 
 
 object RetrofitManager {
@@ -28,14 +51,12 @@ object RetrofitManager {
         return this
     }
 
-    fun <T> getService(serviceClass: Class<T>): T {
-
-        initRetrofit()
+    fun  getService():ProjectApi{
 
         if (mRetrofit == null) {
             throw UninitializedPropertyAccessException("Retrofit exception")
         } else {
-            return mRetrofit!!.create(serviceClass)
+            return mRetrofit!!.create(ProjectApi::class.java)
         }
     }
 

@@ -17,7 +17,9 @@
 
         </activity>
 
-        <activity android:name=".activity.Login.LoginActivity" />
+        <activity android:name=".activity.Login.LoginActivity" >
+
+        </activity>
         <activity android:name=".activity.splash.SplashActivity" />
         <activity
             android:name=".activity.main.MainActivity"

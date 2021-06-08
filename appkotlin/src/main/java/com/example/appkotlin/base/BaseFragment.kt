@@ -9,6 +9,7 @@ import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.example.appkotlin.LoadState
@@ -31,6 +32,7 @@ abstract class BaseFragment<DM : ViewDataBinding, VM : BaseViewModel> : Fragment
         super.onCreate(savedInstanceState)
 
         initViewModel()
+        this.lifecycle.addObserver(mViewModel)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,32 +42,38 @@ abstract class BaseFragment<DM : ViewDataBinding, VM : BaseViewModel> : Fragment
         baseBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_base, container, false)
 
         mDataBinding = DataBindingUtil.inflate(inflater, getResLayoutId(), baseBinding.flContent, true)
-
-        mDataBinding.lifecycleOwner = this
-
-
         bindViewModel()
+        mDataBinding.lifecycleOwner = this
         initLoadState()
+
         init()
         return baseBinding.root
     }
 
 
-    fun initLoadState() {
+    private fun initLoadState() {
         if (mViewModel != null) {
-            mViewModel.loadState.observe(viewLifecycleOwner, Observer<LoadState> { t: LoadState? ->
-                if (t != null) {
-                    switchLoadState(t)
-                }
+//            mViewModel.loadState.observe(viewLifecycleOwner, Observer<LoadState> { t: LoadState? ->
+//                if (t != null) {
+//                    Log.e("LoadState--->B1", "    " + t)
+//                    switchLoadState(t)
+//                }B
+//            })
+            mViewModel.loadState.observe(viewLifecycleOwner, Observer<LoadState>{
+                Log.e("LoadState--->B1-",""+it);
             })
         }
+        Log.e("LoadState--->B",""+"Observer");
+
+
     }
 
 
-    fun switchLoadState(loadState: LoadState) {
+    private fun switchLoadState(loadState: LoadState) {
 
         removeLoading()
 
+        Log.e("LoadState--->B", "    " + loadState)
         when (loadState) {
             LoadState.LOADING -> {
                 if (!::loadingBinding.isInitialized || loadingBinding == null) {
@@ -136,3 +144,5 @@ abstract class BaseFragment<DM : ViewDataBinding, VM : BaseViewModel> : Fragment
 //                }
 //    }
 }
+
+

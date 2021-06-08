@@ -9,14 +9,18 @@ import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.appkotlin.LoadState
 import com.example.appkotlin.MyApplication
 import com.example.appkotlin.R
 import com.example.appkotlin.base.BaseFragment
+import com.example.appkotlin.bean.BannerBean
 import com.example.appkotlin.bean.Data
 import com.example.appkotlin.databinding.FragmentHomeBinding
+import com.example.appkotlin.net.RetrofitManager
 import com.zhouwei.mzbanner.holder.MZHolderCreator
 import com.zhouwei.mzbanner.holder.MZViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Retrofit
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
@@ -27,25 +31,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     override fun initViewModel() {
+        Log.e("home","initViewModel")
         mViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
+//        initDataChange()
     }
 
     override fun bindViewModel() {
-//        mDataBinding.viewModel = mViewModel
-//        mViewModel.loadState.postValue(LoadState.LOADING)
+        Log.e("home","bindViewModel")
 
-        mViewModel.loadData()
 
-        mViewModel.mutableBanner.observe(this, Observer { bannerBean ->
-            mzBanner.setPages(bannerBean.data as List<Nothing>?, MZHolderCreator<BannerViewHolder>
-            { return@MZHolderCreator BannerViewHolder() })
+        mDataBinding.image.setOnClickListener { TODO("Not yet implemented") }
+
+
+//        mViewModel.mutableBanner.observe(this, Observer { bannerBean ->
+//            mzBanner.setPages(bannerBean.data as List<Nothing>?, MZHolderCreator<BannerViewHolder>
+//            { return@MZHolderCreator BannerViewHolder() })
+//        })
+
+        mViewModel.mutableBanner.observe(viewLifecycleOwner, object: Observer<BannerBean>{
+            override fun onChanged(t: BannerBean?) {
+
+            }
         })
+
 
 
     }
 
+
+    suspend fun text(){
+        Log.e("banner",RetrofitManager.getService().loadProjectTree().data.toString());
+    }
+
     override fun init() {
+        Log.e("home","init")
+        mViewModel.loadData()
     }
 
 

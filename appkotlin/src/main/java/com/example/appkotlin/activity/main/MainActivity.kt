@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
 //                R.id.navigation_setting))
 //        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
     }
 
 //    suspend fun getBanner() {
