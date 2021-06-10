@@ -38,7 +38,7 @@ public class MainActivity2 extends AppCompatActivity {
         rv = findViewById(R.id.rv);
 
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 88; i++) {
             list.add(i + "  ");
         }
 
@@ -76,12 +76,14 @@ public class MainActivity2 extends AppCompatActivity {
 //            int swipeFlags = ItemTouchHelper.LEFT;
 //            return makeMovementFlags(dragFlags, swipeFlags);
 
+//            该方法返回一个Flags表示Item的三种状态状态：idle(空闲)、 swiping(滑动)、dragging(拖动)，
         }
 
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             Log.e(TAG, "onMove");
-
+//            当 ItemTouchHelper 拖动一个Item时该方法将会被回调，Item将从旧的位置移动到新的位置
+////                    * 如果不拖动这个方法将从来不会调用,返回true表示已经被移动到新的位置
 
             startPosition=viewHolder.getAdapterPosition();
             toPosition=target.getAdapterPosition();
@@ -107,6 +109,8 @@ public class MainActivity2 extends AppCompatActivity {
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
             Log.e(TAG, "onSwiped");
+//            当Item被滑动的时候被调用
+//                    * 如果你不滑动这个方法将不会被调用
         }
 
         @Override
@@ -121,6 +125,8 @@ public class MainActivity2 extends AppCompatActivity {
             return true;
         }
 
+
+//        当item由静止状态变为滑动或拖动状态时调用此方法
         @Override
         public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
             super.onSelectedChanged(viewHolder, actionState);
@@ -160,23 +166,27 @@ public class MainActivity2 extends AppCompatActivity {
 
         public CustomAdapter(List<String> list) {
             this.list = list;
+            Log.e("CustomAdapter--->","CustomAdapter");
         }
 
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            Log.e("CustomAdapter--->","onCreateViewHolder");
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
             return new ViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            Log.e("CustomAdapter--->","onBindViewHolder"+position);
             holder.tv.setText(list.get(position) + " ");
             holder.tvDelete.setText(position + " ");
         }
 
         @Override
         public int getItemCount() {
+            Log.e("CustomAdapter--->","getItemCount");
             return list.size();
         }
 
