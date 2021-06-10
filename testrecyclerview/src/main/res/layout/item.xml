@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="#00909a"
+    android:layout_marginTop="3dp"
+    >
+    <TextView
+        android:id="@+id/tvItem"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:text="item"
+        android:paddingLeft="20dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvInsert"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:text="insert"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:id="@+id/tvUpdate"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:text="update"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        />
+
+    <TextView
+        android:id="@+id/tvDelete"
+        android:layout_height="match_parent"
+        android:layout_width="80dp"
+        android:text="delete"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        />
+</LinearLayout>

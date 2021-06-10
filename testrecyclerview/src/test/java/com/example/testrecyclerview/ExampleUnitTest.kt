@@ -1,4 +1,4 @@
-package com.example.myapplication3
+package com.example.testrecyclerview
 
 import org.junit.Test
 

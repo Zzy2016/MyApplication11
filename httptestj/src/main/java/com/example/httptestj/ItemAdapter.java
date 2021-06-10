@@ -1,5 +1,6 @@
 package com.example.httptestj;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         holder.getBinding().setVariable(user, list.get(position));
+
         holder.binding.executePendingBindings();
 
         ItemListBinding itemListBinding= (ItemListBinding) holder.binding;
@@ -51,11 +53,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 //                notifyItemRemoved(index);//删除指定位置item 并刷新
 
 
+                Log.e("delete",position+"  ");
 
                 //正常有删除动画
-//                list.remove(position);
-//                notifyItemRemoved(position);
-//                notifyItemRangeChanged(position,list.size()-1);
+                list.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position,list.size()-1);
 
                 //直接删除无动画
 //                list.remove(position);
@@ -82,6 +85,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public ItemViewHolder(ViewDataBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+
         }
 
         public ViewDataBinding getBinding() {
@@ -90,6 +94,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         public void setBinding(ViewDataBinding binding) {
             this.binding = binding;
+
         }
     }
 }

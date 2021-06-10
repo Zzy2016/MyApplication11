@@ -12,7 +12,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/AboutRecyclerView" />
             <option value="$PROJECT_DIR$/aboutresult" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/appkotlin" />
@@ -30,6 +29,7 @@
             <option value="$PROJECT_DIR$/server" />
             <option value="$PROJECT_DIR$/sound" />
             <option value="$PROJECT_DIR$/test1launchmode" />
+            <option value="$PROJECT_DIR$/testrecyclerview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

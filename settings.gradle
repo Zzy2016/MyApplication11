@@ -1,4 +1,4 @@
-include ':AboutRecyclerView'
+include ':testrecyclerview'
 include ':aboutresult'
 include ':bitmaptest'
 include ':sound'

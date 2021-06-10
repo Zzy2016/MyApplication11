@@ -26,7 +26,7 @@ public class MainActivity5 extends AppCompatActivity {
 //        setContentView(R.layout.activity_main5);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main5);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             User user = new User();
             user.setId(String.valueOf(i));
             user.setName("name" + i);

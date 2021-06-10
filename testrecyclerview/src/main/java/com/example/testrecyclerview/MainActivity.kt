@@ -1,4 +1,4 @@
-package com.example.myapplication3
+package com.example.testrecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,14 +13,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        resources.getStringArray(R.array.array)
-        var list = resources.getStringArray(R.array.array)
-        rv.adapter=FlowerAdapter(list)
+        var list = MutableList(10, { it.toString() })
+        rv.adapter = FlowerAdapter(list)
     }
 }
 
-class FlowerAdapter(var list: Array<String>) : RecyclerView.Adapter<FlowerAdapter.ViewHolder>() {
+class FlowerAdapter(var list: MutableList<String>) : RecyclerView.Adapter<FlowerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
@@ -28,7 +26,25 @@ class FlowerAdapter(var list: Array<String>) : RecyclerView.Adapter<FlowerAdapte
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(list[position] +"  "+ position.toString())
+        holder.tvDelete.setOnClickListener {
+            list.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position,list.size)
+
+//            list.removeAt(position)
+//            notifyDataSetChanged()
+        }
+
+
+        holder.tvInsert.setOnClickListener {
+            list.add(position+1,"S$position")
+            notifyItemInserted(position+1)
+            notifyItemRangeRemoved(position+1,list.size)
+//            notifyDataSetChanged()
+        }
+
+
     }
 
     override fun getItemCount(): Int {
@@ -46,6 +62,9 @@ class FlowerAdapter(var list: Array<String>) : RecyclerView.Adapter<FlowerAdapte
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //        constructor(itemView: View) : super(itemView)
         val tv: TextView = itemView.findViewById(R.id.tvItem)
+        val tvDelete: TextView =itemView.findViewById(R.id.tvDelete)
+        val tvInsert: TextView =itemView.findViewById(R.id.tvInsert)
+        val tvUpdate: TextView =itemView.findViewById(R.id.tvUpdate)
         fun bind(text: String) {
             tv.text = text
         }
