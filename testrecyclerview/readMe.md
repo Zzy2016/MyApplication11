@@ -9,3 +9,4 @@ MainActivity3  缓存和复用
   https://www.jianshu.com/p/3e9aa4bdaefd
   https://www.jianshu.com/p/2a450dba89a6
   https://www.jianshu.com/p/55cc8b268bcb
+  https://www.jianshu.com/p/66428fe8d467
