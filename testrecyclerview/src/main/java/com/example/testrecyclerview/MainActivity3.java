@@ -1,9 +1,15 @@
 package com.example.testrecyclerview;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,5 +31,8 @@ public class MainActivity3 extends AppCompatActivity {
             list.add((i + 1) + "");
         }
         rv.setAdapter(new CommAdapter(list));
+        rv.addItemDecoration(new SimpleItemDecoration(1));
     }
+
+
 }

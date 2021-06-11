@@ -34,7 +34,8 @@ public class CommAdapter extends RecyclerView.Adapter<CommViewHolder> {
             Log.e("CommAdapter-->","重用了"+holder.tv.getText().toString()+"   写入"+list.get(position));
         }
 
-        holder.tv.setText(position+"  ");
+//        holder.tv.setText(position+"  ");
+        holder.tv.setText(list.get(position));
     }
 
     @Override

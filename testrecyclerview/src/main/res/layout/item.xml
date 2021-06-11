@@ -4,7 +4,7 @@
     android:layout_height="50dp"
     android:orientation="horizontal"
     android:background="#00909a"
-    android:layout_marginTop="3dp"
+
     >
     <TextView
         android:id="@+id/tvItem"
