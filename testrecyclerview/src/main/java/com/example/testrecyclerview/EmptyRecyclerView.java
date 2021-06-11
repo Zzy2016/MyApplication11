@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
+/*
+* AdapterDataObserver 是用来监听 Adapter 的数据源变化的，其实就是一个观察者模式的实现。
+* */
 public class EmptyRecyclerView extends RecyclerView {
     private View mEmptyView;
 
