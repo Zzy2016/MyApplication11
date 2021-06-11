@@ -36,6 +36,7 @@ public class GridActivity extends AppCompatActivity {
         rv = findViewById(R.id.rv);
         rv.setAdapter(new CommImgAdapter(this));
         rv.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+
 //        rv.setLayoutManager(new GridLayoutManager(this, 3));
 //        rv.addItemDecoration(new SpacesItemDecoration());
     }
